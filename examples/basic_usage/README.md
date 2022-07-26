@@ -1,7 +1,9 @@
-# SNS Topic
-Basic quickstart for creating a SNS Topic resource.
+# Basic usage
+
+Basic usage example can be found in the [`main.tf`] source file.
 
 Example shows using Default Tags in the provider as well as passing additional tags into the resource.
+
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -16,7 +18,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ec2-key-pair"></a> [ec2-key-pair](#module\_ec2-key-pair) | ../../ | n/a |
+| <a name="module_ec2-key-pair"></a> [ec2-key-pair](#module\_ec2-key-pair) | so1omon563/ec2-key-pair/aws/ | 1.0.0 |
 
 ## Resources
 
