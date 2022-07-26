@@ -16,7 +16,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_sns_topic"></a> [sns\_topic](#module\_sns\_topic) | so1omon563/sns/aws | 0.1.0 |
+| <a name="module_ec2-key-pair"></a> [ec2-key-pair](#module\_ec2-key-pair) | ../../ | n/a |
 
 ## Resources
 
@@ -28,5 +28,7 @@ No inputs.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ec2-key-pair"></a> [ec2-key-pair](#output\_ec2-key-pair) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

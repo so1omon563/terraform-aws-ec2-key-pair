@@ -2,17 +2,13 @@ variable "name" {}
 
 variable "tags" {}
 
-variable "topic_prefix" {}
-
-variable "topic_name_override" {}
-
 provider "aws" {
   default_tags {
     tags = var.tags
   }
 }
 
-module "sns" {
+module "ec2-key-pair" {
   source = "../../../"
 
   name = var.name
@@ -20,26 +16,4 @@ module "sns" {
     example = "true"
   }
 }
-output "sns" { value = module.sns }
-
-module "sns-prefix" {
-  source = "../../../"
-
-  name         = var.name
-  topic_prefix = var.topic_prefix
-  tags = {
-    example = "true"
-  }
-}
-output "sns-prefix" { value = module.sns-prefix }
-
-module "sns-override" {
-  source = "../../../"
-
-  name                = var.name
-  topic_name_override = var.topic_name_override
-  tags = {
-    example = "true"
-  }
-}
-output "sns-override" { value = module.sns-override }
+output "ec2-key-pair" { value = module.ec2-key-pair }

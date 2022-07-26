@@ -1,1 +1,1 @@
-# TODO - Add additional tests for submodules.
+# TODO - Add additional tests. Current testing only verifies that the secret was created since no resource check exists for key pairs.
