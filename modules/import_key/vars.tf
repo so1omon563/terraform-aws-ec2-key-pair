@@ -10,6 +10,16 @@ variable "name" {
   default     = null
 }
 
+variable "public_key" {
+  type        = string
+  description = "The public key to import. See the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws) for more information on supported formats."
+}
+
+variable "private_key" {
+  type        = string
+  description = "The private key to import. Don't keep this value in source control! See `Populating the Private Key` in the README for more information."
+}
+
 variable "tags" {
   type        = map(string)
   description = "A map of tag names and values for tags to apply to all taggable resources created by the module. Default value is a blank map to allow for using Default Tags in the provider."

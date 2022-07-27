@@ -6,11 +6,15 @@ Also creates an entry in Secrets Manager with the contents of the private key.
 
 If tearing down a Key Pair, please note that the secret will remain in Secrets Manager for a minimum of 7 days, so the key name cannot be re-used during that time.
 
-The key name has a randomly generated hash at the end of it to help prevent this issue.
+By default, the key name has a randomly generated hash at the end of it to help prevent this issue. The name can be overridden if desired, using the `key_name_override` input variable.
 
 If you wish to force delete the key, you will need to use the CLI.
 
 `aws secretsmanager delete-secret --secret-id <key-name> --force-delete-without-recovery`
+
+If you want to import an existing key, you can use the `import_key` submodule.
+
+This submodule can be found under the [modules](https://github.com/so1omon563/terraform-aws-ec2-key-pair/tree/main/modules) directory.
 
 Examples for use can be found under the [examples](https://github.com/so1omon563/terraform-aws-ec2-key-pair/tree/main/examples) directory.
 
@@ -50,8 +54,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_kms_arn"></a> [kms\_arn](#input\_kms\_arn) | The ARN of the KMS key to use for encrypting your secrets. If left blank, the default encryption key will be used. | `string` | `null` | no |
-| <a name="input_name"></a> [name](#input\_name) | Short, descriptive name of the environment. All resources will be named using this value as a prefix. See [aws\_sns\_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic#name) for more information on name restrictions / requirements. | `string` | n/a | yes |
+| <a name="input_key_name_override"></a> [key\_name\_override](#input\_key\_name\_override) | The specific name you wish to use for the key pair, if you don't wish to use the default formatted name. Either this, or `name` must be set. | `string` | `null` | no |
+| <a name="input_kms_arn"></a> [kms\_arn](#input\_kms\_arn) | The ARN of the KMS key to use for encrypting your secret. If left blank, the default encryption key will be used. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Short, descriptive name of the environment. All resources will be named using this value as a prefix. Either this or `key_name_override` must be set. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tag names and values for tags to apply to all taggable resources created by the module. Default value is a blank map to allow for using Default Tags in the provider. | `map(string)` | `{}` | no |
 
 ## Outputs
