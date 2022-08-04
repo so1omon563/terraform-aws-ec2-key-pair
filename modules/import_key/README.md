@@ -16,38 +16,35 @@ If you wish to force delete the key, you will need to use the CLI.
 
 ## Populating the Private Key
 
-This module is designed to create a one-off secret by passing in a variable at run-time. **DO NOT** place your secrets in source control.
+**DO NOT** place your secrets in source control.
 
-If none of these options are passed in, the secret will be created, but will not contain a secret value.
-
-If desired, the secret value can also be independently maintained using the [secret_version](modules/secret_version) submodule.
-
-There are multiple options for passing in the `secret_string` value without placing them in source control.
+There are multiple options for passing in the `private_key` value without placing them in source control.
 
 The most common options include:
 
 #### Use a .tfvars file
 
-Use a `terraform.tfvars` file that contains the value of `secret_string`, `secret_binary`, or `secret_key_value_pair`.
+Use a `terraform.tfvars` file that contains the value of `private_key`.
 
 Make sure that you have `terraform.tfvars` in your `.gitignore` so it doesn't accidentally get committed.
 
 An example of the format for that is here:
+
 ```
 # terraform.tfvars
 
-secret_string = "string_value"
+private_key = "string_value"
 
 ```
 
 #### Pass in input variable on command line
 
-Pass in the value of `secret_string` on the command line when running Terraform.
+Pass in the value of `private_key` on the command line when running Terraform.
 
-An example of `secret_string` is here:
+An example is here:
 
 ```
-terraform apply -var="secret_string=string_value"
+terraform apply -var="private_key=string_value"
 ```
 
 Depending on how you are calling the module, this option may not always work as expected.
@@ -56,11 +53,11 @@ Depending on how you are calling the module, this option may not always work as 
 
 You can also set your input variable as an environment variable in your shell prior to running Terraform.
 
-An example of `secret_string` is here:
+An example of `private_key` is here:
 
 ```
-$ export TF_VAR_secret_string=string_value
-$ terraform apply
+export TF_VAR_private_key=string_value
+terraform apply
 ```
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Auto-generated technical documentation is created using [`terraform-docs`](https://terraform-docs.io/)
