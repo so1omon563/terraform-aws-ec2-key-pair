@@ -16,7 +16,7 @@ If you wish to force delete the key, you will need to use the CLI.
 
 ## Populating the Private Key
 
-This module is designed to create a one-off secret by passing in a variable at run-time. **DO NOT** place your secrets in source control.
+**DO NOT** place your secrets in source control.
 
 If desired, the secret value can also be independently maintained using the [secret_version](https://registry.terraform.io/modules/so1omon563/secrets-manager/aws/latest/submodules/secret-versionn) module.
 
@@ -31,6 +31,7 @@ Use a `terraform.tfvars` file that contains the value of `private_key`.
 Make sure that you have `terraform.tfvars` in your `.gitignore` so it doesn't accidentally get committed.
 
 An example of the format for that is here:
+
 
 ```hcl
 
