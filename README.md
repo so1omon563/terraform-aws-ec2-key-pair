@@ -12,14 +12,16 @@ If you wish to force delete the key, you will need to use the CLI.
 
 `aws secretsmanager delete-secret --secret-id <key-name> --force-delete-without-recovery`
 
-If you want to import an existing key, you can use the `import_key` submodule.
-
-This submodule can be found under the [modules](https://github.com/so1omon563/terraform-aws-ec2-key-pair/tree/main/modules) directory.
-
-Examples for use can be found under the [examples](https://github.com/so1omon563/terraform-aws-ec2-key-pair/tree/main/examples) directory.
+If you want to import an existing key, you can use the `import_key` submodule, in the `modules` directory.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 Auto-generated technical documentation is created using [`terraform-docs`](https://terraform-docs.io/)
+## Examples
+
+```hcl
+# See examples under the top level examples directory for more information on how to use this module.
+```
 
 ## Requirements
 
@@ -32,9 +34,9 @@ Auto-generated technical documentation is created using [`terraform-docs`](https
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.3.2 |
-| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.35.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.4.3 |
+| <a name="provider_tls"></a> [tls](#provider\_tls) | 4.0.3 |
 
 ## Modules
 
@@ -64,4 +66,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_ec2_key_pair"></a> [ec2\_key\_pair](#output\_ec2\_key\_pair) | A map of properties for the generated EC2 Key pair. |
+
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

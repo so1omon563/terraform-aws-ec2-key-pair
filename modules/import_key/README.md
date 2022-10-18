@@ -18,36 +18,38 @@ If you wish to force delete the key, you will need to use the CLI.
 
 This module is designed to create a one-off secret by passing in a variable at run-time. **DO NOT** place your secrets in source control.
 
-If none of these options are passed in, the secret will be created, but will not contain a secret value.
-
 If desired, the secret value can also be independently maintained using the [secret_version](modules/secret_version) submodule.
 
-There are multiple options for passing in the `secret_string` value without placing them in source control.
+There are multiple options for passing in the `private_key` value without placing them in source control.
 
 The most common options include:
 
 #### Use a .tfvars file
 
-Use a `terraform.tfvars` file that contains the value of `secret_string`, `secret_binary`, or `secret_key_value_pair`.
+Use a `terraform.tfvars` file that contains the value of `private_key`.
 
 Make sure that you have `terraform.tfvars` in your `.gitignore` so it doesn't accidentally get committed.
 
 An example of the format for that is here:
-```
+
+```hcl
+
 # terraform.tfvars
 
-secret_string = "string_value"
+private_key = "private_key_value"
 
 ```
 
 #### Pass in input variable on command line
 
-Pass in the value of `secret_string` on the command line when running Terraform.
+Pass in the value of `private_key` on the command line when running Terraform.
 
-An example of `secret_string` is here:
+An example is here:
 
-```
-terraform apply -var="secret_string=string_value"
+```hcl
+
+terraform apply -var="private_key = private_key_value"
+
 ```
 
 Depending on how you are calling the module, this option may not always work as expected.
@@ -56,14 +58,22 @@ Depending on how you are calling the module, this option may not always work as 
 
 You can also set your input variable as an environment variable in your shell prior to running Terraform.
 
-An example of `secret_string` is here:
+An example of `private_key` is here:
+
+```shell
+
+export TF_VAR_private_key=private_key_value
+terraform apply
 
 ```
-$ export TF_VAR_secret_string=string_value
-$ terraform apply
-```
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 Auto-generated technical documentation is created using [`terraform-docs`](https://terraform-docs.io/)
+## Examples
+
+```hcl
+# See examples under the top level examples directory for more information on how to use this module.
+```
 
 ## Requirements
 
@@ -76,8 +86,8 @@ Auto-generated technical documentation is created using [`terraform-docs`](https
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.23.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.3.2 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.35.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.4.3 |
 
 ## Modules
 
@@ -108,4 +118,6 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_ec2_key_pair"></a> [ec2\_key\_pair](#output\_ec2\_key\_pair) | A map of properties for the imported EC2 Key. |
+
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
